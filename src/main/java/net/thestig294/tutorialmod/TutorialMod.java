@@ -2,6 +2,7 @@ package net.thestig294.tutorialmod;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.item.ModItemGroups;
 import net.thestig294.tutorialmod.item.ModItems;
 import org.slf4j.Logger;
@@ -16,6 +17,8 @@ public class TutorialMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
+
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 	}
 }

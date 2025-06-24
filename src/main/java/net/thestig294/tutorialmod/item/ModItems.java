@@ -16,6 +16,7 @@ public class ModItems {
     public static final Item RUBY = registerItem("ruby", new Item(new FabricItemSettings()));
     public static final Item RAW_RUBY = registerItem("raw_ruby", new Item(new FabricItemSettings()));
 
+//    This is essentially a hook implementation
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries){
         entries.add(RUBY);
         entries.add(RAW_RUBY);
@@ -28,6 +29,8 @@ public class ModItems {
     public static void registerModItems(){
         TutorialMod.LOGGER.info("Registering Mod Items for " + TutorialMod.MOD_ID);
 
+//        This is simply a hook provided by Fabric that is called whenever the "Ingredients" tab of the creative
+//        menu is opened, and passes an "entries" object to the hook function
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientItemGroup);
     }
 }
