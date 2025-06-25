@@ -2,6 +2,7 @@ package net.thestig294.tutorialmod;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.item.ModItemGroups;
 import net.thestig294.tutorialmod.item.ModItems;
@@ -20,5 +21,10 @@ public class TutorialMod implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
+//		You might want to separate FuelRegistry calls into a separate class in practice
+//		(This is the equivalent to shoving everything into the autorun file in Lua...)
+//		200 = 1 item smelted
+		FuelRegistry.INSTANCE.add(ModItems.COAL_BRIQUETTE, 200);
 	}
 }

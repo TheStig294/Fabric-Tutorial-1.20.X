@@ -13,7 +13,10 @@
   "item.tutorialmod.metal_detector": "Metal Detector",
 
   "block.tutorialmod.sound_block": "Sound Block",
+
   "item.tutorialmod.tomato": "Tomato",
+
+  "item.tutorialmod.coal_briquette": "Coal Briquette",
 
   "itemgroup.ruby": "Ruby Tutorial Group"
 }
