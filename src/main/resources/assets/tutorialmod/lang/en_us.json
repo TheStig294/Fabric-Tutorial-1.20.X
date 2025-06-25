@@ -18,5 +18,8 @@
 
   "item.tutorialmod.coal_briquette": "Coal Briquette",
 
+  "tooltip.tutorialmod.metal_detector": "Finds valuables underground",
+  "tooltip.tutorialmod.sound_block": "Makes a sweet sound when right-clicked",
+
   "itemgroup.ruby": "Ruby Tutorial Group"
 }
