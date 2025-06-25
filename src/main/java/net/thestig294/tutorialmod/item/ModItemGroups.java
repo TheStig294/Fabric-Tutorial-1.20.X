@@ -34,6 +34,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.METAL_DETECTOR);
 
+                        entries.add(ModBlocks.SOUND_BLOCK);
                     }).build());
 
     public static void registerItemGroups(){

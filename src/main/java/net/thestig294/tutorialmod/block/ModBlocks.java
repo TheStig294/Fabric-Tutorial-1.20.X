@@ -6,18 +6,17 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ExperienceDroppingBlock;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.thestig294.tutorialmod.TutorialMod;
+import net.thestig294.tutorialmod.block.custom.SoundBlock;
 
 public class ModBlocks {
     public static final Block RUBY_BLOCK = registerBlock("ruby_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
-
     public static final Block RAW_RUBY_BLOCK = registerBlock("raw_ruby_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
@@ -29,6 +28,9 @@ public class ModBlocks {
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.NETHERRACK).strength(1.5f), UniformIntProvider.create(2,5)));
     public static final Block END_STONE_RUBY_ORE = registerBlock("end_stone_ruby_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.END_STONE).strength(3f), UniformIntProvider.create(4,7)));
+
+    public static final Block SOUND_BLOCK = registerBlock("sound_block",
+            new SoundBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 
     //    To copy an existing block, use: "FabricBlockSettings.copyOf(Blocks.BLOCK_NAME)"
 
@@ -48,8 +50,8 @@ public class ModBlocks {
     }
 
 //    Block item you can throw on the ground/have in your inventory
-    private static Item registerBlockItem(String name, Block block){
-        return Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, name),
+    private static void registerBlockItem(String name, Block block){
+        Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, name),
         new BlockItem(block, new FabricItemSettings()));
     }
 
