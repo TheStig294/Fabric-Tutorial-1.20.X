@@ -32,9 +32,12 @@ public class ModItemGroups {
                         entries.add(ModBlocks.NETHERRACK_RUBY_ORE);
                         entries.add(ModBlocks.END_STONE_RUBY_ORE);
 
+                        entries.add(ModItems.METAL_DETECTOR);
+
                     }).build());
 
     public static void registerItemGroups(){
-        TutorialMod.LOGGER.info("Registering Item Groups for " + TutorialMod.MOD_ID);
+        TutorialMod.LOGGER.info("Registering Item Groups for {}", TutorialMod.MOD_ID);
+        TutorialMod.LOGGER.info("Registered group: {}", RUBY_GROUP.getDisplayName().getString());
     }
 }

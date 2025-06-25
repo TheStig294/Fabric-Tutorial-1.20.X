@@ -9,12 +9,17 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.thestig294.tutorialmod.TutorialMod;
+import net.thestig294.tutorialmod.item.custom.MetalDetectorItem;
 
 public class ModItems {
 //    This isn't actually called until .registerModItems() is in the TutorialMod class,
 //    Since Java doesn't load static members until the class is used at least once!
     public static final Item RUBY = registerItem("ruby", new Item(new FabricItemSettings()));
     public static final Item RAW_RUBY = registerItem("raw_ruby", new Item(new FabricItemSettings()));
+
+//    Can click 64 times before the item breaks
+    public static final Item METAL_DETECTOR = registerItem("metal_detector",
+            new MetalDetectorItem(new FabricItemSettings().maxDamage(64)));
 
 //    This is essentially a hook implementation
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries){
