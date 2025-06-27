@@ -48,10 +48,12 @@ public class SoundBlock extends Block {
         tooltip.add(Text.translatable("tooltip.tutorialmod.sound_block").styled(style -> style
                 .withColor(Formatting.GREEN)
                 .withBold(true)
-//                Minecraft has 3 in-built fonts: "default", "uniform" (Small, monospaced), and "alt" (Enchantment font)
+//                Minecraft has 3 in-built fonts:
+//                "default", "uniform" (Small, monospaced), "alt" (Enchantment font), and "illageralt" (Runic font)
 //                .withFont(new Identifier("minecraft", "default"))));
                 .withFont(new Identifier("minecraft", "uniform"))));
 //                .withFont(new Identifier("minecraft", "alt"))));
+//                .withFont(new Identifier("minecraft", "illageralt"))));
         super.appendTooltip(stack, world, tooltip, options);
     }
 }
