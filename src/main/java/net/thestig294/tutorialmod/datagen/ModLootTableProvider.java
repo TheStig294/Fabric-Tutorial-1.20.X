@@ -40,6 +40,19 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
 //        *If you want to mimic other vanilla block drop behaviours, like having a custom shulker box,
 //        check out the BlockLootTableGenerator class, and copy functions from there!!!*
+
+        addDrop(ModBlocks.RUBY_STAIRS);
+        addDrop(ModBlocks.RUBY_TRAPDOOR);
+        addDrop(ModBlocks.RUBY_WALL);
+        addDrop(ModBlocks.RUBY_FENCE);
+        addDrop(ModBlocks.RUBY_FENCE_GATE);
+        addDrop(ModBlocks.RUBY_BUTTON);
+        addDrop(ModBlocks.RUBY_PRESSURE_PLATE);
+
+//        the doorDrops() builder ensures the door does not drop twice, once from each door block
+//        the slabDrops() builder ensures breaking 2 slabs in 1 block drops both slabs
+        addDrop(ModBlocks.RUBY_DOOR, doorDrops(ModBlocks.RUBY_DOOR));
+        addDrop(ModBlocks.RUBY_SLAB, slabDrops(ModBlocks.RUBY_SLAB));
     }
 
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {
