@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.custom.SoundBlock;
+import net.thestig294.tutorialmod.block.custom.TomatoCropBlock;
 
 public class ModBlocks {
     //    To copy an existing block, use: "FabricBlockSettings.copyOf(Blocks.BLOCK_NAME)"
@@ -71,6 +72,8 @@ public class ModBlocks {
     public static final Block RUBY_TRAPDOOR = registerBlock("ruby_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque(), BlockSetType.IRON));
 
+    public static final Block TOMATO_CROP = Registry.register(Registries.BLOCK, new Identifier(TutorialMod.MOD_ID, "tomato_crop"),
+            new TomatoCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
 
 
 //    Helper functions to make creating a block and its inventory item easier

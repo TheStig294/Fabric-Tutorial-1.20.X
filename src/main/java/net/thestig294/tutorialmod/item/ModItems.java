@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.thestig294.tutorialmod.TutorialMod;
+import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.item.custom.MetalDetectorItem;
 import net.thestig294.tutorialmod.item.custom.ModArmorItem;
 
@@ -52,6 +53,12 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item RUBY_BOOTS = registerItem("ruby_boots",
             new ArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+//    AliasedBlockItem allows you to use the name of the item, rather than the name of the block for the translation key!
+//    (Else if you just use BlockItem it will just use the internal name of the block!)
+//    "item.tutorialmod.tomato_seeds": "Tomato Seeds", instead of "item.tutorialmod.tomato_crop": "Tomato Seeds"
+    public static final Item TOMATO_SEEDS = registerItem("tomato_seeds",
+            new AliasedBlockItem(ModBlocks.TOMATO_CROP, new FabricItemSettings()));
 
 
 
