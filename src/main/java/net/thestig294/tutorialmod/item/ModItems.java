@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.item.custom.MetalDetectorItem;
+import net.thestig294.tutorialmod.item.custom.ModArmorItem;
 
 public class ModItems {
 //    This isn't actually called until .registerModItems() is in the TutorialMod class,
@@ -40,8 +41,11 @@ public class ModItems {
     public static final Item RUBY_HOE = registerItem("ruby_hoe",
             new HoeItem(ModToolMaterial.RUBY, 0, 0f, new FabricItemSettings()));
 
+//    We only need to add the custom ArmorItem class to one of the armour pieces, since we're checking
+//    if we're wearing the full set in the ModArmorItem class anyway
+//    If we made each armour item a ModArmorItem, then we would be redundantly re-checking 3 extra times!
     public static final Item RUBY_HELMET = registerItem("ruby_helmet",
-            new ArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.HELMET, new FabricItemSettings()));
+            new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item RUBY_CHESTPLATE = registerItem("ruby_chestplate",
             new ArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
     public static final Item RUBY_LEGGINGS = registerItem("ruby_leggings",
