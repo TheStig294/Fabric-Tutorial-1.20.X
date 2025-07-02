@@ -64,6 +64,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_4")))
                 .add(ModBlocks.END_STONE_RUBY_ORE);
+//        You can make blocks only minable with custom mining levels like this:
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_5")))
+                .add(ModBlocks.SOUND_BLOCK);
 
 //        *Important! Else your fences and walls will *not* connect to each other!*
         getOrCreateTagBuilder(BlockTags.FENCES)
