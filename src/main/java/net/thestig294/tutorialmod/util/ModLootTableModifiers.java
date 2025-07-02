@@ -2,9 +2,11 @@ package net.thestig294.tutorialmod.util;
 
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.TimeCheckLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -12,14 +14,23 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.util.Identifier;
 import net.thestig294.tutorialmod.item.ModItems;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ModLootTableModifiers {
     private static final Identifier JUNGLE_TEMPLE_ID = new Identifier("minecraft", "chests/jungle_temple");
     private static final Identifier CREEPER_ID = new Identifier("minecraft", "entities/creeper");
 
+    private static final Identifier SUSPICIOUS_SAND_ID = new Identifier("minecraft", "archaeology/desert_pyramid");
+
     public static void modifyLootTables(){
 //        Consider LootTableEvents.MODIFY.register() to be like an "OnLootTableQueried" hook
+
+
 //        *See the VanillaEntityLootTableGenerator class for examples!*
 //        *Or VanillaBlockLootTableGenerator!*
+
 
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id,
                                           tableBuilder, lootTableSource) -> {
@@ -61,6 +72,25 @@ public class ModLootTableModifiers {
 
                 tableBuilder.pool(poolBuilder);
             }
+        }));
+
+//        Unfortunately, suspicious sand/gravel/archeology loot tables are hard-coded, so we need to access the
+//        pools[0].entries table directly. See the archeology folder in the minecraft loot_tables data folder.
+//        If you try to add more than 1 pool to a suspicious block drop pool, all pools other than the first will be ignored!
+        LootTableEvents.REPLACE.register(((resourceManager, lootManager, id,
+                                           original, source) -> {
+            if (SUSPICIOUS_SAND_ID.equals(id)){
+                List<LootPoolEntry> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
+//                List<LootPoolEntry> entries = new ArrayList<>();
+                entries.add(ItemEntry.builder(ModItems.METAL_DETECTOR).build());
+                entries.add(ItemEntry.builder(ModItems.COAL_BRIQUETTE).build());
+
+//            Fabric adds more type interfaces for .with()
+                LootPool.Builder pool = LootPool.builder().with(entries);
+                return LootTable.builder().pool(pool).build();
+            }
+
+            return null;
         }));
     }
 }
