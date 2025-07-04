@@ -75,6 +75,9 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.CORN, Models.GENERATED);
 
+//        I have no idea why this item is showing up as untextured...
+        itemModelGenerator.register(ModItems.BAR_BRAWL_MUSIC_DISK, Models.GENERATED);
+
 //        Custom armour models require the .registerArmor() function because they are complex... (armour trims!)
 //        (The clock and compass model have custom functions too!)
         itemModelGenerator.registerArmor((ArmorItem) ModItems.RUBY_HELMET);

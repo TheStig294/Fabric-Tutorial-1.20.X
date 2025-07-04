@@ -11,6 +11,7 @@ import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.item.custom.MetalDetectorItem;
 import net.thestig294.tutorialmod.item.custom.ModArmorItem;
+import net.thestig294.tutorialmod.sound.ModSounds;
 
 public class ModItems {
 //    This isn't actually called until .registerModItems() is in the TutorialMod class,
@@ -64,6 +65,9 @@ public class ModItems {
             new AliasedBlockItem(ModBlocks.CORN_CROP, new FabricItemSettings()));
     public static final Item CORN = registerItem("corn",
             new Item(new FabricItemSettings().food(ModFoodComponents.CORN)));
+
+    public static final Item BAR_BRAWL_MUSIC_DISK = registerItem("bar_brawl_music_disk",
+            new MusicDiscItem(7, ModSounds.BAR_BRAWL, new FabricItemSettings().maxCount(1), 122));
 
 
 

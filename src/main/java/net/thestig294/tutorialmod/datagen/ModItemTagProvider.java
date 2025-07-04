@@ -18,5 +18,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 //        This is all you need to do to make a custom armour set trimmable, just add the set to the trimmable tag!
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.RUBY_HELMET, ModItems.RUBY_CHESTPLATE, ModItems.RUBY_LEGGINGS, ModItems.RUBY_BOOTS);
+
+//        Makes a music disk item usable!
+        getOrCreateTagBuilder(ItemTags.MUSIC_DISCS)
+                .add(ModItems.BAR_BRAWL_MUSIC_DISK);
+
+        getOrCreateTagBuilder(ItemTags.CREEPER_DROP_MUSIC_DISCS)
+                .add(ModItems.BAR_BRAWL_MUSIC_DISK);
     }
 }

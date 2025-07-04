@@ -22,6 +22,9 @@
   "item.tutorialmod.corn": "Corn",
   "item.tutorialmod.corn_seeds": "Corn Seeds",
 
+  "item.tutorialmod.bar_brawl_music_disk": "Music Disk",
+  "item.tutorialmod.bar_brawl_music_disk.desc": "Bryan Tech - Bar Brawl (CC0)",
+
   "block.tutorialmod.ruby_block": "Block of Ruby",
   "block.tutorialmod.raw_ruby_block": "Block of Raw Ruby",
 
