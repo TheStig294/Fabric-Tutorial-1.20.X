@@ -2,7 +2,7 @@ package net.thestig294.tutorialmod.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
@@ -14,7 +14,6 @@ import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.item.ModItems;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
     private static final List<ItemConvertible> RUBY_SMELTABLES = List.of(ModItems.RAW_RUBY,
@@ -25,7 +24,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
+    public void generate(RecipeExporter exporter) {
 //        Look at the RecipeProvider class, and use the functions starting with: "offerX()", or "createXRecipe()"
 //        You can use the ShapelessRecipeJsonBuilder.create() function (Using the examples in the RecipeProvider class),
 //        and make shaped, shapeless, stonecutter, anvil, etc. recipes for any vanilla crafting block!
