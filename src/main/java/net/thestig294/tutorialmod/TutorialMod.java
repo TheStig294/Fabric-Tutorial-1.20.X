@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.item.ModItemGroups;
 import net.thestig294.tutorialmod.item.ModItems;
+import net.thestig294.tutorialmod.util.ModCustomTrades;
 import net.thestig294.tutorialmod.util.ModLootTableModifiers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,7 @@ public class TutorialMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 
 		ModLootTableModifiers.modifyLootTables();
+		ModCustomTrades.registerCustomTrades();
 
 //		You might want to separate FuelRegistry calls into a separate class in practice
 //		(This is the equivalent to shoving everything into the autorun file in Lua...)
