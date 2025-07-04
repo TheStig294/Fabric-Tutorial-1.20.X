@@ -44,6 +44,8 @@
 
   "block.tutorialmod.dahlia": "Dahlia",
 
+  "entity.minecraft.villager.sound_master": "Soundmaster",
+
   "tooltip.tutorialmod.metal_detector": "Finds valuables underground",
   "tooltip.tutorialmod.sound_block": "Makes a sweet sound when right-clicked",
 

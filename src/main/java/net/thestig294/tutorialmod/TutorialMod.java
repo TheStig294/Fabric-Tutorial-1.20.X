@@ -8,6 +8,7 @@ import net.thestig294.tutorialmod.item.ModItemGroups;
 import net.thestig294.tutorialmod.item.ModItems;
 import net.thestig294.tutorialmod.util.ModCustomTrades;
 import net.thestig294.tutorialmod.util.ModLootTableModifiers;
+import net.thestig294.tutorialmod.villager.ModVillagerProfession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +27,7 @@ public class TutorialMod implements ModInitializer {
 
 		ModLootTableModifiers.modifyLootTables();
 		ModCustomTrades.registerCustomTrades();
+		ModVillagerProfession.registerVillagers();
 
 //		You might want to separate FuelRegistry calls into a separate class in practice
 //		(This is the equivalent to shoving everything into the autorun file in Lua...)
