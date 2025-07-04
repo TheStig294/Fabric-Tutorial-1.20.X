@@ -1,4 +1,4 @@
-// 1.20.1	2025-07-04T11:15:19.4302121	Tutorial Mod/Tags for minecraft:block
+// 1.20.1	2025-07-04T11:35:07.3366523	Tutorial Mod/Tags for minecraft:block
 1094742dcaf3ee582a7a121e9ae4a2477318142b data\minecraft\tags\blocks\needs_iron_tool.json
 090afd1457b32fdd36d347afa6679cf48a814de9 data\minecraft\tags\blocks\needs_stone_tool.json
 6446ed28cb4ab3f15e9b978234672715ad219d65 data\minecraft\tags\blocks\needs_diamond_tool.json
@@ -6,6 +6,6 @@
 a60feaadbbde8a61cdfb5a17c0888914f71cd055 data\minecraft\tags\blocks\mineable\pickaxe.json
 c0c21dd37bc5740a0fd4b8d23b548084594c6c2e data\fabric\tags\blocks\needs_tool_level_5.json
 ba8d493b80709dab74096050eae307a04a22b98b data\tutorialmod\tags\blocks\metal_detector_detectable_blocks.json
-557851e313abb0cef1734845a356572f1548a2b4 data\minecraft\tags\blocks\fence_gates.json
 2c2950d0c33850440a6a78f67ec70701ac9e7939 data\minecraft\tags\blocks\walls.json
+557851e313abb0cef1734845a356572f1548a2b4 data\minecraft\tags\blocks\fence_gates.json
 73c07b084712b06dbb0b224fdf6348000e5741df data\fabric\tags\blocks\needs_tool_level_4.json

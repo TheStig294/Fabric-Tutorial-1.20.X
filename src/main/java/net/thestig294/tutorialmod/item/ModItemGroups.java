@@ -47,7 +47,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CORN);
                         entries.add(ModItems.CORN_SEEDS);
 
-                        entries.add(ModBlocks.RUBY_BLOCK);
+                                  entries.add(ModBlocks.RUBY_BLOCK);
                         entries.add(ModBlocks.RAW_RUBY_BLOCK);
 
                         entries.add(ModBlocks.RUBY_ORE);
@@ -66,6 +66,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RUBY_PRESSURE_PLATE);
                         entries.add(ModBlocks.RUBY_DOOR);
                         entries.add(ModBlocks.RUBY_TRAPDOOR);
+
+                        entries.add(ModBlocks.DAHLIA);
 
                     }).build());
 

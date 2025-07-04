@@ -42,6 +42,8 @@
   "block.tutorialmod.ruby_door": "Ruby Door",
   "block.tutorialmod.ruby_trapdoor": "Ruby Trapdoor",
 
+  "block.tutorialmod.dahlia": "Dahlia",
+
   "tooltip.tutorialmod.metal_detector": "Finds valuables underground",
   "tooltip.tutorialmod.sound_block": "Makes a sweet sound when right-clicked",
 

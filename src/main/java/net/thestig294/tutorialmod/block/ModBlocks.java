@@ -3,6 +3,7 @@ package net.thestig294.tutorialmod.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -55,8 +56,7 @@ public class ModBlocks {
     public static final Block RUBY_BUTTON = registerBlock("ruby_button",
             new ButtonBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).collidable(false), BlockSetType.IRON, 10, true));
     public static final Block RUBY_PRESSURE_PLATE = registerBlock("ruby_pressure_plate",
-            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,
-                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), BlockSetType.IRON));
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), BlockSetType.IRON));
 
     public static final Block RUBY_FENCE = registerBlock("ruby_fence",
             new FenceBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
@@ -78,6 +78,11 @@ public class ModBlocks {
 
     public static final Block CORN_CROP = Registry.register(Registries.BLOCK, new Identifier(TutorialMod.MOD_ID, "corn_crop"),
             new CornCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
+
+    public static final Block DAHLIA = registerBlock("dahlia",
+            new FlowerBlock(StatusEffects.FIRE_RESISTANCE, 10, FabricBlockSettings.copyOf(Blocks.ALLIUM).nonOpaque().noCollision()));
+    public static final Block POTTED_DAHLIA = Registry.register(Registries.BLOCK, new Identifier(TutorialMod.MOD_ID, "potted_dahlia"),
+            new FlowerPotBlock(DAHLIA, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
 
 
 //    Helper functions to make creating a block and its inventory item easier
