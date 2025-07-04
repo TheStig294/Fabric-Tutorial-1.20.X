@@ -14,6 +14,7 @@ import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.custom.CornCropBlock;
 import net.thestig294.tutorialmod.block.custom.SoundBlock;
 import net.thestig294.tutorialmod.block.custom.TomatoCropBlock;
+import net.thestig294.tutorialmod.sound.ModSounds;
 
 public class ModBlocks {
     //    To copy an existing block, use: "FabricBlockSettings.copyOf(Blocks.BLOCK_NAME)"
@@ -41,7 +42,7 @@ public class ModBlocks {
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.END_STONE).strength(3f), UniformIntProvider.create(4,7)));
 
     public static final Block SOUND_BLOCK = registerBlock("sound_block",
-            new SoundBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new SoundBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(ModSounds.SOUND_BLOCK_SOUNDS)));
 
 
 //    For some reason, these blocks aren't mineable... (Except for the Ruby Wall). Need to investigate...

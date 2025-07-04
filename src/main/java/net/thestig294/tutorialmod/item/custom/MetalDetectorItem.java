@@ -7,10 +7,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.thestig294.tutorialmod.sound.ModSounds;
 import net.thestig294.tutorialmod.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -39,6 +41,16 @@ public class MetalDetectorItem extends Item {
                     assert player != null;
                     outputValuableBlock(positionClicked.down(i), player, state.getBlock());
                     foundValuableBlock = true;
+
+//                    To play a sound, you need a "world" object, or any object that has a .playSound() or similar call
+//                    From there, there's lots of ways to call .playSound(), but you need a:
+//                    - position
+//                    - SoundEvent,
+//                    - SoundCategory,
+//                    which is mandatory unlike Gmod's SOUND_CHANNEL_AUTO...
+                    context.getWorld().playSound(null, context.getBlockPos(), ModSounds.METAL_DETECTOR_FOUND_ORE,
+                            SoundCategory.BLOCKS, 1f,1f);
+
                     break;
                 }
             }

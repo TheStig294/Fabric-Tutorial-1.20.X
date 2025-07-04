@@ -49,5 +49,13 @@
   "tooltip.tutorialmod.metal_detector": "Finds valuables underground",
   "tooltip.tutorialmod.sound_block": "Makes a sweet sound when right-clicked",
 
+  "sounds.tutorialmod.metal_detector_found_ore": "Metal Detector Jingle",
+
+  "sounds.tutorialmod.sound_block_break": "Sound Block Breaks",
+  "sounds.tutorialmod.sound_block_step": "Sound Block Footstep",
+  "sounds.tutorialmod.sound_block_hit": "Sound Block Hit",
+  "sounds.tutorialmod.sound_block_place": "Sound Block Placed",
+  "sounds.tutorialmod.sound_block_fall": "Sound Block Impact",
+
   "itemgroup.ruby": "Ruby Tutorial Group"
 }
