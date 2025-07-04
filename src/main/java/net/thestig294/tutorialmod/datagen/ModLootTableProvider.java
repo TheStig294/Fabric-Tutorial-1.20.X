@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.condition.AnyOfLootCondition;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
@@ -13,6 +14,7 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.thestig294.tutorialmod.block.ModBlocks;
+import net.thestig294.tutorialmod.block.custom.CornCropBlock;
 import net.thestig294.tutorialmod.block.custom.TomatoCropBlock;
 import net.thestig294.tutorialmod.item.ModItems;
 
@@ -60,6 +62,15 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(ModBlocks.TOMATO_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(TomatoCropBlock.AGE, 5));
         addDrop(ModBlocks.TOMATO_CROP, cropDrops(ModBlocks.TOMATO_CROP, ModItems.TOMATO, ModItems.TOMATO_SEEDS, builder));
+
+
+//        Either breaking a corn crop block with age 7 or 8 (fully mature bottom or top block) will drop corn and seeds!
+        AnyOfLootCondition.Builder builder2 =
+                BlockStatePropertyLootCondition.builder(ModBlocks.CORN_CROP).properties(StatePredicate.Builder.create()
+                                .exactMatch(CornCropBlock.AGE, 7))
+                        .or(BlockStatePropertyLootCondition.builder(ModBlocks.CORN_CROP).properties(StatePredicate.Builder.create()
+                                .exactMatch(CornCropBlock.AGE, 8)));
+        addDrop(ModBlocks.CORN_CROP, cropDrops(ModBlocks.CORN_CROP, ModItems.CORN, ModItems.CORN_SEEDS, builder2));
     }
 
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {

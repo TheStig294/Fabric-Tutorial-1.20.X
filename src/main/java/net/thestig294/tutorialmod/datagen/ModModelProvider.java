@@ -7,6 +7,7 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
 import net.thestig294.tutorialmod.block.ModBlocks;
+import net.thestig294.tutorialmod.block.custom.CornCropBlock;
 import net.thestig294.tutorialmod.block.custom.TomatoCropBlock;
 import net.thestig294.tutorialmod.item.ModItems;
 
@@ -45,6 +46,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTrapdoor(ModBlocks.RUBY_TRAPDOOR);
 
         blockStateModelGenerator.registerCrop(ModBlocks.TOMATO_CROP, TomatoCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerCrop(ModBlocks.CORN_CROP, CornCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6, 7, 8);
     }
 
     @Override
@@ -68,6 +70,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RUBY_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.RUBY_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.RUBY_HOE, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.CORN, Models.GENERATED);
 
 //        Custom armour models require the .registerArmor() function because they are complex... (armour trims!)
 //        (The clock and compass model have custom functions too!)
