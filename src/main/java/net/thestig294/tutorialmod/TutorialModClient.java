@@ -2,8 +2,14 @@ package net.thestig294.tutorialmod;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.thestig294.tutorialmod.block.ModBlocks;
+import net.thestig294.tutorialmod.entity.ModEntities;
+import net.thestig294.tutorialmod.entity.client.ModModelLayers;
+import net.thestig294.tutorialmod.entity.client.PorcupineModel;
+import net.thestig294.tutorialmod.entity.client.PorcupineRenderer;
 
 public class TutorialModClient implements ClientModInitializer {
     @Override
@@ -17,5 +23,14 @@ public class TutorialModClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DAHLIA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_DAHLIA, RenderLayer.getCutout());
+
+//
+//        Registers the model and its rendering behaviour
+//
+
+//        Have to connect the entity to the renderer...
+        EntityRendererRegistry.register(ModEntities.PORCUPINE, PorcupineRenderer::new);
+//        ...and the model ID to the model
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
     }
 }

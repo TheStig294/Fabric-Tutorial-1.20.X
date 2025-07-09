@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.ModBlocks;
+import net.thestig294.tutorialmod.entity.ModEntities;
 import net.thestig294.tutorialmod.item.custom.MetalDetectorItem;
 import net.thestig294.tutorialmod.item.custom.ModArmorItem;
 import net.thestig294.tutorialmod.sound.ModSounds;
@@ -68,6 +69,9 @@ public class ModItems {
 
     public static final Item BAR_BRAWL_MUSIC_DISK = registerItem("bar_brawl_music_disk",
             new MusicDiscItem(7, ModSounds.BAR_BRAWL, new FabricItemSettings().maxCount(1), 122));
+
+    public static final Item PORCUPINE_SPAWN_EGG = registerItem("porcupine_spawn_egg",
+            new SpawnEggItem(ModEntities.PORCUPINE, 0xa86518, 0x3b260f, new FabricItemSettings()));
 
 
 
