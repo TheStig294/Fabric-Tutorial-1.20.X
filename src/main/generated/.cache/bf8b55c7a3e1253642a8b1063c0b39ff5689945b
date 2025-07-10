@@ -1,4 +1,4 @@
-// 1.20.2	2025-07-09T16:29:51.3186532	Tutorial Mod/Model Definitions
+// 1.20.2	2025-07-10T14:57:02.7504792	Tutorial Mod/Model Definitions
 44a2ab167afd58c93ea4806712969e98191e42e7 assets\tutorialmod\models\block\ruby_trapdoor_bottom.json
 7b0f336fb3fad6a5f6df6b31e3a5be32663e8435 assets\tutorialmod\models\item\ruby_boots_iron_trim.json
 4c44e18e068a091e7c49c847cc81e49d6d5ff2f4 assets\tutorialmod\models\block\ruby_fence_post.json
@@ -26,6 +26,7 @@ d14fdf72f7d0be7bae19ad548d8f6957238ea558 assets\tutorialmod\models\item\ruby_pic
 7e74bbc43eb93672294e79a3d5585b3e8acc08f2 assets\tutorialmod\models\item\ruby_sword.json
 120edcd9284eafa1821e839929f55e2f62e0999b assets\tutorialmod\models\block\ruby_wall_post.json
 d2ea57718b2b1d4bafd79cc6c71c483bab5528d7 assets\tutorialmod\blockstates\ruby_block.json
+ff720ea0aea021144b8557786f6e7f9dead2fd78 assets\tutorialmod\blockstates\gem_polishing_station.json
 2a8d008a809f38e68eccea32c23096824f276b87 assets\tutorialmod\models\item\ruby_leggings_quartz_trim.json
 809a01e1f39dea07cb686033d6f30303110c0bce assets\tutorialmod\models\item\ruby_chestplate_emerald_trim.json
 a8b0e15237f19e81c6da63b29b4f094fb26c8dc3 assets\tutorialmod\blockstates\ruby_button.json
@@ -72,6 +73,7 @@ adc34350b7efaf373e4975c3758e7b880ede78cd assets\tutorialmod\models\item\ruby_sla
 81c58771c6f956628ada19712ede57133eb95836 assets\tutorialmod\models\item\end_stone_ruby_ore.json
 17d1b055e3103b7640abdae34d2bedc463ad7170 assets\tutorialmod\models\item\bar_brawl_music_disk.json
 93719e53df04c62d91023fe733206eb93b7aac86 assets\tutorialmod\models\item\metal_detector.json
+c6fe90ee84600fb9c1f42a398459a0d8b38fe198 assets\tutorialmod\models\item\gem_polishing_station.json
 4e9f1e7b5c4224f640daae5016c9d825c894ad71 assets\tutorialmod\models\item\ruby_helmet_iron_trim.json
 d1c7d3703f338d9fff435a03b7ed7cca39f1301a assets\tutorialmod\models\block\ruby_stairs.json
 9c6e7b2abd59c5a64086be3d9bac690ba7c1f210 assets\tutorialmod\models\item\ruby_leggings_copper_trim.json

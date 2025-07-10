@@ -1,4 +1,4 @@
-// 1.20.2	2025-07-09T16:29:51.3166463	Tutorial Mod/Recipes
+// 1.20.2	2025-07-10T14:57:02.7484792	Tutorial Mod/Recipes
 988bc5fa4092324aba20dd04056bc3f4505f2412 data\tutorialmod\recipes\metal_detector.json
 c784e266bbd5426097ae41eca2685119c44db578 data\tutorialmod\advancements\recipes\misc\ruby_from_blasting_deepslate_ruby_ore.json
 0b4afaad171fa5afc6c73b7459d4f9ec6f5df9bf data\tutorialmod\advancements\recipes\tools\ruby_axe.json
@@ -26,8 +26,8 @@ ec2bc0fc25e9891aacc14a3df93597a8af8a4609 data\tutorialmod\recipes\ruby_from_blas
 b487875059ea431805bdcd98c45d14fb38b5b27d data\tutorialmod\recipes\ruby_door.json
 1e4d71555ba96a0f0bb7bfe33f52af394079adde data\tutorialmod\advancements\recipes\misc\ruby_from_blasting_ruby_ore.json
 efb6d40309f8d0704f6f3a92c8a9989df3f346aa data\tutorialmod\advancements\recipes\decorations\ruby_block.json
-ac3c49fa49062550e54ca1383fdf3f8cc2888deb data\tutorialmod\recipes\ruby_shovel.json
 813038aef2cf94ca99cad3ffdf90b89bf04f1f18 data\tutorialmod\advancements\recipes\redstone\ruby_trapdoor.json
+ac3c49fa49062550e54ca1383fdf3f8cc2888deb data\tutorialmod\recipes\ruby_shovel.json
 cb8ba7dceebb0900d4ba6172ad83ab35a9c15392 data\tutorialmod\advancements\recipes\tools\ruby_hoe.json
 70b57b9099028b04d93acce5a22f9fc92cd81525 data\tutorialmod\advancements\recipes\redstone\ruby_fence_gate.json
 6edea1acc63ce8f3e3d990098dfbbd13e1aef451 data\tutorialmod\advancements\recipes\building_blocks\ruby_stairs.json
