@@ -10,6 +10,7 @@ import net.minecraft.client.render.entity.animation.Transformation;
 //
 
 // Look at the CamelEntity for an example on how entity animations work!
+// (GekkoLib helps with creating/already supplying animations, rather than manually keyframing them in Blockbench)
 public class ModAnimations {
     public static final Animation PORCUPINE_WALK = Animation.Builder.create(2.5f).looping()
             .addBoneAnimation("torso",
@@ -147,7 +148,6 @@ public class ModAnimations {
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(1.9167667f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
-    @SuppressWarnings("unused")
     public static final Animation PORCUPINE_ATTACK = Animation.Builder.create(2f).looping()
             .addBoneAnimation("torso",
                     new Transformation(Transformation.Targets.TRANSLATE,

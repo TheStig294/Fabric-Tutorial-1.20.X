@@ -7,6 +7,9 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -19,6 +22,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import net.thestig294.tutorialmod.entity.ModEntities;
+import net.thestig294.tutorialmod.entity.ai.PorcupineAttackGoal;
 import org.jetbrains.annotations.Nullable;
 
 //
@@ -33,8 +37,18 @@ import org.jetbrains.annotations.Nullable;
 // (Look at the CamelEntity for an example on how animations work!)
 
 public class PorcupineEntity extends AnimalEntity {
+//    The TrackedData class lets you set global data between the server and client on an entity!
+//    (Just like ent:SetNWBool/String/Entity etc. in Gmod!)
+
+//    *Whenever you use a TrackedData object, ALWAYS implement the "initDataTracker()" function!* (as below)
+    private static final TrackedData<Boolean> ATTACKING =
+        DataTracker.registerData(PorcupineEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+
+    public final AnimationState attackAnimationState = new AnimationState();
+    public int attackAnimationTimeout = 0;
 
     public PorcupineEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -47,6 +61,22 @@ public class PorcupineEntity extends AnimalEntity {
             this.idleAnimationState.start(this.age);
         } else {
             this.idleAnimationTimeout--;
+        }
+
+        if (this.isAttacking() && attackAnimationTimeout <= 0) {
+//            For 40 seconds...
+            attackAnimationTimeout = 40;
+//            ...play the attack animation!
+//            (Basically ent:ResetSequence("attack") from Gmod!)
+            attackAnimationState.start(this.age);
+        } else {
+            --this.attackAnimationTimeout;
+        }
+
+        if (!this.isAttacking()) {
+//            Looks like you don't need to trigger the idle animation to stop an animation like in Gmod,
+//            you can outright stop animations!
+            attackAnimationState.stop();
         }
     }
 
@@ -74,18 +104,27 @@ public class PorcupineEntity extends AnimalEntity {
     }
 
     //    Goals = Mob AI
+//    The WolfEntity is a great example of different goalSelectors and targetSelectors available to you!
     @Override
     protected void initGoals() {
 //        Note: Typically, if you don't put a SwimGoal as the first priority goal for your mob, it will just sink and drown in water lol
         this.goalSelector.add(0, new SwimGoal(this));
 
 //        To find all goals available, just Ctrl-H on Minecraft's "Goal" object!
+//        (Don't know what the "pauseWhenMobIdle" bool actually does... just set it to "true" and your custom attack animation should work!)
+        this.goalSelector.add(1, new PorcupineAttackGoal(this, 1D, true));
+
         this.goalSelector.add(1, new AnimalMateGoal(this, 1.15D));
         this.goalSelector.add(2, new TemptGoal(this, 1.25D, Ingredient.ofItems(Items.BEETROOT), false));
+
         this.goalSelector.add(3, new FollowParentGoal(this, 1.15D));
+
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 1D));
         this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 4f));
         this.goalSelector.add(3, new LookAroundGoal(this));
+
+//        The "RevengeGoal" class basically sets the mob to just attack whatever attacked it, and nothing else.
+        this.targetSelector.add(1, new RevengeGoal(this));
     }
 
 //    Attributes = The Entity-equivalent to settings from Blocks/Items!
@@ -95,7 +134,22 @@ public class PorcupineEntity extends AnimalEntity {
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
                 .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2);
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4);
+    }
+
+    public void setAttacking(boolean attacking){
+        this.dataTracker.set(ATTACKING, attacking);
+    }
+
+    @Override
+    public boolean isAttacking() {
+        return this.dataTracker.get(ATTACKING);
+    }
+
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(ATTACKING, false);
     }
 
     @Override

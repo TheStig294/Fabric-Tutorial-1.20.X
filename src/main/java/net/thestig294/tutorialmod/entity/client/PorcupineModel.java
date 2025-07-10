@@ -178,7 +178,9 @@ public class PorcupineModel<T extends PorcupineEntity> extends SinglePartEntityM
 
 //		(Magic numbers stolen from CamelEntity...)
 		this.animateMovement(ModAnimations.PORCUPINE_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
+//		Just linking the animation states from the entity, with the animations from the model
 		this.updateAnimation(entity.idleAnimationState, ModAnimations.PORCUPINE_IDLE, ageInTicks, 1f);
+		this.updateAnimation(entity.attackAnimationState, ModAnimations.PORCUPINE_ATTACK, ageInTicks, 1f);
 	}
 
 //	Apparently from somewhere from CamelEntity? (Can't find this anywhere, this is probably the decompiled version...)
