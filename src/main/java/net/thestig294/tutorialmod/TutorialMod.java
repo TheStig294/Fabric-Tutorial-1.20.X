@@ -10,6 +10,7 @@ import net.thestig294.tutorialmod.entity.ModEntities;
 import net.thestig294.tutorialmod.entity.custom.PorcupineEntity;
 import net.thestig294.tutorialmod.item.ModItemGroups;
 import net.thestig294.tutorialmod.item.ModItems;
+import net.thestig294.tutorialmod.recipe.ModRecipes;
 import net.thestig294.tutorialmod.screen.ModScreenHandlers;
 import net.thestig294.tutorialmod.sound.ModSounds;
 import net.thestig294.tutorialmod.util.ModCustomTrades;
@@ -41,6 +42,8 @@ public class TutorialMod implements ModInitializer {
 
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
+
+		ModRecipes.registerRecipes();
 
 //		You might want to separate FuelRegistry calls into a separate class in practice
 //		(This is the equivalent to shoving everything into the autorun file in Lua...)
