@@ -6,7 +6,10 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.thestig294.tutorialmod.block.ModBlocks;
+import net.thestig294.tutorialmod.block.entity.ModBlockEntities;
+import net.thestig294.tutorialmod.block.entity.renderer.GemPolishingBlockEntityRenderer;
 import net.thestig294.tutorialmod.entity.ModEntities;
 import net.thestig294.tutorialmod.entity.client.ModModelLayers;
 import net.thestig294.tutorialmod.entity.client.PorcupineModel;
@@ -37,5 +40,7 @@ public class TutorialModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
 
         HandledScreens.register(ModScreenHandlers.GEM_POLISHING_SCREEN_HANDLER, GemPolishingScreen::new);
+
+        BlockEntityRendererFactories.register(ModBlockEntities.GEM_POLISHING_STATION_BLOCK_ENTITY, GemPolishingBlockEntityRenderer::new);
     }
 }

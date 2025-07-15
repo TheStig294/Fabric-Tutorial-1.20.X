@@ -1,8 +1,10 @@
 package net.thestig294.tutorialmod.block.entity;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.CampfireBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -11,6 +13,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -72,6 +77,22 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
                 return 2;
             }
         };
+    }
+
+    public ItemStack getRenderStack() {
+        if(this.getStack(OUTPUT_SLOT).isEmpty()){
+            return this.getStack(INPUT_SLOT);
+        } else {
+            return this.getStack(OUTPUT_SLOT);
+        }
+    }
+
+//    Basically SendFullStateUpdate() for updating how a block entity looks...
+    @Override
+    public void markDirty() {
+        assert world != null;
+        world.updateListeners(pos, getCachedState(), getCachedState(), Block.NOTIFY_ALL);
+        super.markDirty();
     }
 
     @Override
@@ -188,5 +209,55 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
         return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
     }
 
+// * <p>Block entity's data, unlike block states, are not automatically synced. Block
+// * entities declare when and which data to sync. In general, block entities need to
+// * sync states observable from the clients without specific interaction (such as opening
+// * a container). {@link #toUpdatePacket} and {@link #toInitialChunkDataNbt} control
+// * which data is sent to the client. To sync the block entity to the client, call
+// * {@code serverWorld.getChunkManager().markForUpdate(this.getPos());}.
 
+    /**
+     * {@return the packet to send to nearby players when the block entity's observable
+     * state changes, or {@code null} to not send the packet}
+     *
+     * <p>If the data returned by {@link #toInitialChunkDataNbt initial chunk data} is suitable
+     * for updates, the following shortcut can be used to create an update packet: {@code
+     * BlockEntityUpdateS2CPacket.create(this)}. The NBT will be passed to {@link #readNbt}
+     * on the client.
+     *
+     * <p>"Observable state" is a state that clients can observe without specific interaction.
+     * For example, {@link CampfireBlockEntity}'s cooked items are observable states,
+     * but chests' inventories are not observable states, since the player must first open
+     * that chest before they can see the contents.
+     *
+     * <p>To sync block entity data using this method, use {@code
+     * serverWorld.getChunkManager().markForUpdate(this.getPos());}.
+     *
+     * @see #toInitialChunkDataNbt
+     */
+    @Override
+    public @Nullable Packet<ClientPlayPacketListener> toUpdatePacket() {
+        return BlockEntityUpdateS2CPacket.create(this);
+    }
+
+    /**
+     * {@return the serialized state of this block entity that is observable by clients}
+     *
+     * <p>This is sent alongside the initial chunk data, as well as when the block
+     * entity implements {@link #toUpdatePacket} and decides to use the default
+     * {@link net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket}.
+     *
+     * <p>"Observable state" is a state that clients can observe without specific interaction.
+     * For example, {@link CampfireBlockEntity}'s cooked items are observable states,
+     * but chests' inventories are not observable states, since the player must first open
+     * that chest before they can see the contents.
+     *
+     * <p>To send all NBT data of this block entity saved to disk, return {@link #createNbt}.
+     *
+     * @see #toUpdatePacket
+     */
+    @Override
+    public NbtCompound toInitialChunkDataNbt() {
+        return createNbt();
+    }
 }
