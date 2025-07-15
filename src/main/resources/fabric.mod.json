@@ -24,6 +24,9 @@
 		],
 		"fabric-datagen": [
 			"net.thestig294.tutorialmod.TutorialModDataGenerator"
+		],
+		"rei_client": [
+			"net.thestig294.tutorialmod.compat.TutorialModREIClientPlugin"
 		]
 	},
 	"mixins": [
