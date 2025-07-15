@@ -89,6 +89,20 @@ public class ModBlocks {
     public static final Block GEM_POLISHING_STATION = registerBlock("gem_polishing_station",
             new GemPolishingStationBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
 
+    public static final Block CHESTNUT_LOG = registerBlock("chestnut_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG)));
+    public static final Block CHESTNUT_WOOD = registerBlock("chestnut_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD)));
+    public static final Block STRIPPED_CHESTNUT_LOG = registerBlock("stripped_chestnut_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG)));
+    public static final Block STRIPPED_CHESTNUT_WOOD = registerBlock("stripped_chestnut_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD)));
+
+    public static final Block CHESTNUT_PLANKS = registerBlock("chestnut_planks",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS)));
+    public static final Block CHESTNUT_LEAVES = registerBlock("chestnut_leaves",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES)));
+
 
 //    Helper functions to make creating a block and its inventory item easier
     private static Block registerBlock(String name, Block block){
