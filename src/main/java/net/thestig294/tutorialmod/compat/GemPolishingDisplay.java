@@ -36,6 +36,6 @@ public class GemPolishingDisplay extends BasicDisplay {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return null;
+        return GemPolishingCategory.GEM_POLISHING;
     }
 }

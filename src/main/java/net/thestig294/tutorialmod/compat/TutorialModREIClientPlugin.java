@@ -10,7 +10,7 @@ import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.recipe.GemPolishingRecipe;
 import net.thestig294.tutorialmod.screen.GemPolishingScreen;
 
-// This whole thing doesn't work for some reason... However, it is a nice example of using someone else's mod
+// This is a nice example of using someone else's mod
 // Buuuuutttt... it's unlikely to work unless that mod is popular enough to have a maven repo...
 
 public class TutorialModREIClientPlugin implements REIClientPlugin {
