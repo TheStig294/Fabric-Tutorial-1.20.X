@@ -1,4 +1,4 @@
-// 1.20.2	2025-07-17T14:52:34.8593276	Tutorial Mod/Block Loot Tables
+// 1.20.2	2025-07-17T16:24:39.8273713	Tutorial Mod/Block Loot Tables
 a77a150c7851fbaf830081a89b0e3371ad62225d data\tutorialmod\loot_tables\blocks\ruby_fence_gate.json
 b3340c719a7e5b717cd9ccf26d03d2932423aeff data\tutorialmod\loot_tables\blocks\chestnut_wood.json
 03a3b82f1a2fb709266d0911c5987cde08a8ef10 data\tutorialmod\loot_tables\blocks\end_stone_ruby_ore.json
@@ -10,8 +10,8 @@ af40d80306717301f6cc60b19c082a4df9ad8c1e data\tutorialmod\loot_tables\blocks\che
 3f950c6a949fc7757f6ee79a0dc95e652cf721fa data\tutorialmod\loot_tables\blocks\ruby_ore.json
 7c9a48559e7d2f66cab7773aa57bd31ae7034cc1 data\tutorialmod\loot_tables\blocks\stripped_chestnut_wood.json
 0206435597cd005f1d3c39c0aff4cdd540ece9a7 data\tutorialmod\loot_tables\blocks\chestnut_planks.json
-178a29f446cd7ce8ca32f37371622aed06467afe data\tutorialmod\loot_tables\blocks\corn_crop.json
 38e063304cdf3b20b5eb65a453c524e0dcccfcff data\tutorialmod\loot_tables\blocks\stripped_chestnut_log.json
+178a29f446cd7ce8ca32f37371622aed06467afe data\tutorialmod\loot_tables\blocks\corn_crop.json
 d335d1581e2acd1b2179f84a884643db4c61a07e data\tutorialmod\loot_tables\blocks\ruby_pressure_plate.json
 b6a1d4b9e3f995f1a5cb92e5869a34a3b9f110b4 data\tutorialmod\loot_tables\blocks\netherrack_ruby_ore.json
 4bf0bfaf4e6545bdaa95f0e9a62a72e5b62bb9d0 data\tutorialmod\loot_tables\blocks\ruby_stairs.json

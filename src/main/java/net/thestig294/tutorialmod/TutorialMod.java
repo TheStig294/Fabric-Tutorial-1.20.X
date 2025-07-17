@@ -19,6 +19,7 @@ import net.thestig294.tutorialmod.sound.ModSounds;
 import net.thestig294.tutorialmod.util.ModCustomTrades;
 import net.thestig294.tutorialmod.util.ModLootTableModifiers;
 import net.thestig294.tutorialmod.villager.ModVillagerProfession;
+import net.thestig294.tutorialmod.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,5 +68,6 @@ public class TutorialMod implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CHESTNUT_LEAVES, 30, 60);
 
 		ModBoats.registerBoats();
+		ModWorldGeneration.generateModWorldGen();
 	}
 }
