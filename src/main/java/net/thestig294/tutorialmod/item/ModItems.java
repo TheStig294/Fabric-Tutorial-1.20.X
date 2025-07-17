@@ -1,5 +1,6 @@
 package net.thestig294.tutorialmod.item;
 
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -9,6 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.ModBlocks;
+import net.thestig294.tutorialmod.entity.ModBoats;
 import net.thestig294.tutorialmod.entity.ModEntities;
 import net.thestig294.tutorialmod.item.custom.MetalDetectorItem;
 import net.thestig294.tutorialmod.item.custom.ModArmorItem;
@@ -77,6 +79,9 @@ public class ModItems {
             new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.STANDING_CHESTNUT_SIGN, ModBlocks.WALL_CHESTNUT_SIGN));
     public static final Item HANGING_CHESTNUT_SIGN = registerItem("chestnut_hanging_sign",
             new HangingSignItem(ModBlocks.HANGING_CHESTNUT_SIGN, ModBlocks.WALL_HANGING_CHESTNUT_SIGN, new FabricItemSettings().maxCount(16)));
+
+    public static final Item CHESTNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, false);
+    public static final Item CHESTNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_CHEST_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, true);
 
 
 //    This is essentially a hook implementation

@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.block.entity.ModBlockEntities;
+import net.thestig294.tutorialmod.entity.ModBoats;
 import net.thestig294.tutorialmod.entity.ModEntities;
 import net.thestig294.tutorialmod.entity.custom.PorcupineEntity;
 import net.thestig294.tutorialmod.item.ModItemGroups;
@@ -64,5 +65,7 @@ public class TutorialMod implements ModInitializer {
 
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CHESTNUT_PLANKS, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CHESTNUT_LEAVES, 30, 60);
+
+		ModBoats.registerBoats();
 	}
 }

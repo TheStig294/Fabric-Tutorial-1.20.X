@@ -1,5 +1,6 @@
 package net.thestig294.tutorialmod;
 
+import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import com.terraformersmc.terraform.sign.SpriteIdentifierRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -13,6 +14,7 @@ import net.minecraft.client.util.SpriteIdentifier;
 import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.block.entity.ModBlockEntities;
 import net.thestig294.tutorialmod.block.entity.renderer.GemPolishingBlockEntityRenderer;
+import net.thestig294.tutorialmod.entity.ModBoats;
 import net.thestig294.tutorialmod.entity.ModEntities;
 import net.thestig294.tutorialmod.entity.client.ModModelLayers;
 import net.thestig294.tutorialmod.entity.client.PorcupineModel;
@@ -50,5 +52,7 @@ public class TutorialModClient implements ClientModInitializer {
 
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, ModBlocks.CHESTNUT_SIGN_TEXTURE));
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, ModBlocks.CHESTNUT_HANGING_SIGN_TEXTURE));
+
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.CHESTNUT_BOAT_ID, false);
     }
 }
