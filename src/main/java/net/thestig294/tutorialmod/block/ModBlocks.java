@@ -16,10 +16,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.thestig294.tutorialmod.TutorialMod;
-import net.thestig294.tutorialmod.block.custom.CornCropBlock;
-import net.thestig294.tutorialmod.block.custom.GemPolishingStationBlock;
-import net.thestig294.tutorialmod.block.custom.SoundBlock;
-import net.thestig294.tutorialmod.block.custom.TomatoCropBlock;
+import net.thestig294.tutorialmod.block.custom.*;
 import net.thestig294.tutorialmod.sound.ModSounds;
 
 public class ModBlocks {
@@ -124,6 +121,9 @@ public class ModBlocks {
     public static final BlockFamily CHESTNUT_FAMILY = BlockFamilies.register(ModBlocks.CHESTNUT_PLANKS)
             .sign(ModBlocks.STANDING_CHESTNUT_SIGN, ModBlocks.WALL_CHESTNUT_SIGN)
             .group("wooden").unlockCriterionName("has_planks").build();
+
+    public static final Block DICE_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TutorialMod.MOD_ID, "dice_block"),
+            new DiceBlock(FabricBlockSettings.copyOf(Blocks.STONE)));
 
 //    Helper functions to make creating a block and its inventory item easier
     private static Block registerBlock(String name, Block block){

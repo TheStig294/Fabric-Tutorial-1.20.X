@@ -12,6 +12,7 @@ import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.entity.ModBoats;
 import net.thestig294.tutorialmod.entity.ModEntities;
+import net.thestig294.tutorialmod.item.custom.DiceItem;
 import net.thestig294.tutorialmod.item.custom.MetalDetectorItem;
 import net.thestig294.tutorialmod.item.custom.ModArmorItem;
 import net.thestig294.tutorialmod.sound.ModSounds;
@@ -83,6 +84,7 @@ public class ModItems {
     public static final Item CHESTNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, false);
     public static final Item CHESTNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_CHEST_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, true);
 
+    public static final Item DICE = registerItem("dice", new DiceItem(new FabricItemSettings()));
 
 //    This is essentially a hook implementation
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries){
