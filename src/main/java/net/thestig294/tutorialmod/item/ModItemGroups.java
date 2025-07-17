@@ -50,6 +50,9 @@ public class ModItemGroups {
                         entries.add(ModItems.BAR_BRAWL_MUSIC_DISK);
                         entries.add(ModItems.PORCUPINE_SPAWN_EGG);
 
+                        entries.add(ModItems.CHESTNUT_SIGN);
+                        entries.add(ModItems.HANGING_CHESTNUT_SIGN);
+
                         entries.add(ModBlocks.RUBY_BLOCK);
                         entries.add(ModBlocks.RAW_RUBY_BLOCK);
 
