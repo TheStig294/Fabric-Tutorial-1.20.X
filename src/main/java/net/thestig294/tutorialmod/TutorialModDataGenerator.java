@@ -8,6 +8,7 @@ import net.thestig294.tutorialmod.datagen.*;
 import net.thestig294.tutorialmod.world.ModConfiguredFeatures;
 import net.thestig294.tutorialmod.world.ModPlacedFeatures;
 import net.thestig294.tutorialmod.world.biome.ModBiomes;
+import net.thestig294.tutorialmod.world.dimension.ModDimensions;
 
 public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -30,5 +31,6 @@ public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::boostrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::boostrap);
 		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::boostrap);
+		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrapType);
 	}
 }

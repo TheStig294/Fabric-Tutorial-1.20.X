@@ -6,6 +6,8 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.util.Identifier;
 import net.thestig294.tutorialmod.block.ModBlocks;
 import net.thestig294.tutorialmod.block.entity.ModBlockEntities;
 import net.thestig294.tutorialmod.entity.ModBoats;
@@ -74,5 +76,13 @@ public class TutorialMod implements ModInitializer {
 
 		ModBoats.registerBoats();
 		ModWorldGeneration.generateModWorldGen();
+
+//		Have a look at the CustomPortalBuilder class for more custom portal options!
+		CustomPortalBuilder.beginPortal()
+				.frameBlock(ModBlocks.RUBY_BLOCK)
+				.lightWithItem(ModItems.CORN)
+				.destDimID(new Identifier(TutorialMod.MOD_ID, "stigdim"))
+				.tintColor(0xc76efa)
+				.registerPortal();
 	}
 }
