@@ -12,10 +12,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.ModBlocks;
+import net.thestig294.tutorialmod.world.tree.custom.ChestnutFoliagePlacer;
 import net.thestig294.tutorialmod.world.tree.custom.ChestnutTrunkPlacer;
 
 import java.util.List;
@@ -68,7 +68,7 @@ public class ModConfiguredFeatures {
 
 //                radius, offset, height (See: BlobFoliagePlacer)
                 BlockStateProvider.of(ModBlocks.CHESTNUT_LEAVES),
-                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
+                new ChestnutFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
 
 //                How to consider the free space around the tree before allowing to grow it
                 new TwoLayersFeatureSize(1,0,2)).build()
