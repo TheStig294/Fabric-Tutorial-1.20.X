@@ -18,7 +18,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.custom.*;
 import net.thestig294.tutorialmod.sound.ModSounds;
-import net.thestig294.tutorialmod.world.tree.ChestnutSaplingGenerator;
+import net.thestig294.tutorialmod.world.tree.ModSaplingGenerator;
 
 public class ModBlocks {
     //    To copy an existing block, use: "FabricBlockSettings.copyOf(Blocks.BLOCK_NAME)"
@@ -37,13 +37,13 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
     public static final Block RUBY_ORE = registerBlock("ruby_ore",
-            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.STONE).strength(2f), UniformIntProvider.create(2,5)));
+            new ExperienceDroppingBlock(UniformIntProvider.create(2,5), FabricBlockSettings.copyOf(Blocks.STONE).strength(2f)));
     public static final Block DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore",
-            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE).strength(4f), UniformIntProvider.create(2,5)));
+            new ExperienceDroppingBlock(UniformIntProvider.create(2,5), FabricBlockSettings.copyOf(Blocks.DEEPSLATE).strength(4f)));
     public static final Block NETHERRACK_RUBY_ORE = registerBlock("netherrack_ruby_ore",
-            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.NETHERRACK).strength(1.5f), UniformIntProvider.create(2,5)));
+            new ExperienceDroppingBlock(UniformIntProvider.create(2,5), FabricBlockSettings.copyOf(Blocks.NETHERRACK).strength(1.5f)));
     public static final Block END_STONE_RUBY_ORE = registerBlock("end_stone_ruby_ore",
-            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.END_STONE).strength(3f), UniformIntProvider.create(4,7)));
+            new ExperienceDroppingBlock(UniformIntProvider.create(4,7), FabricBlockSettings.copyOf(Blocks.END_STONE).strength(3f)));
 
     public static final Block SOUND_BLOCK = registerBlock("sound_block",
             new SoundBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(ModSounds.SOUND_BLOCK_SOUNDS)));
@@ -59,24 +59,24 @@ public class ModBlocks {
 //    The "BlockSetType" class just determines the sounds a multi-material block makes,
 //    and if it is an "openable" block like a door, whether it can be opened by hand!
     public static final Block RUBY_BUTTON = registerBlock("ruby_button",
-            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).collidable(false), BlockSetType.IRON, 10, true));
+            new ButtonBlock(BlockSetType.IRON, 10, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).collidable(false)));
     public static final Block RUBY_PRESSURE_PLATE = registerBlock("ruby_pressure_plate",
-            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), BlockSetType.IRON));
+            new PressurePlateBlock(BlockSetType.IRON, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 
     public static final Block RUBY_FENCE = registerBlock("ruby_fence",
             new FenceBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 //    A FenceGateBlock is forced to have some kind of "WoodType" passed to the contstructor,
 //    even if it's not made out of wood! This is just selecting the sound you want the fence gate to play!
     public static final Block RUBY_FENCE_GATE = registerBlock("ruby_fence_gate",
-            new FenceGateBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK), WoodType.ACACIA));
+            new FenceGateBlock(WoodType.ACACIA, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block RUBY_WALL = registerBlock("ruby_wall",
             new WallBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 
 //    Important to add the ".nonOpaque()" call to ensure doors and trapdoors have a see-through texture!
     public static final Block RUBY_DOOR = registerBlock("ruby_door",
-            new DoorBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque(), BlockSetType.IRON));
+            new DoorBlock(BlockSetType.IRON, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block RUBY_TRAPDOOR = registerBlock("ruby_trapdoor",
-            new TrapdoorBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque(), BlockSetType.IRON));
+            new TrapdoorBlock(BlockSetType.IRON, FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
 
     public static final Block TOMATO_CROP = Registry.register(Registries.BLOCK, new Identifier(TutorialMod.MOD_ID, "tomato_crop"),
             new TomatoCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
@@ -127,7 +127,7 @@ public class ModBlocks {
             new DiceBlock(FabricBlockSettings.copyOf(Blocks.STONE)));
 
     public static final Block CHESTNUT_SAPLING = registerBlock("chestnut_sapling",
-            new SaplingBlock(new ChestnutSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)));
+            new SaplingBlock(ModSaplingGenerator.CHESTNUT, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)));
 
 //    Helper functions to make creating a block and its inventory item easier
     private static Block registerBlock(String name, Block block){

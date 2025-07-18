@@ -83,7 +83,7 @@ public class GemPolishingRecipe implements Recipe<SimpleInventory> {
 //                Reads in a max of 9 ingredients, and the JSON field is called "ingredients"
                 validateAmount(Ingredient.DISALLOW_EMPTY_CODEC, 9).fieldOf("ingredients").forGetter(GemPolishingRecipe::getIngredients),
 //                The output of the recipe is read from the "output" JSON field, and GemPolishingRecipe's "output" data member is set to it
-                RecipeCodecs.CRAFTING_RESULT.fieldOf("output").forGetter(r -> r.output)
+                ItemStack.RECIPE_RESULT_CODEC.fieldOf("output").forGetter(r -> r.output)
 //                And finally, a new GemPolishingRecipe object is created, with this data
         ).apply(in, GemPolishingRecipe::new));
 

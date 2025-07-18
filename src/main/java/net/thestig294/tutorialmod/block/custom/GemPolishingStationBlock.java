@@ -1,5 +1,6 @@
 package net.thestig294.tutorialmod.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -21,11 +22,18 @@ import org.jetbrains.annotations.Nullable;
 public class GemPolishingStationBlock extends BlockWithEntity implements BlockEntityProvider {
     private static final VoxelShape SHAPE = GemPolishingStationBlock.createCuboidShape(0,0,0,16,12,16);
 
+    public static final MapCodec<GemPolishingStationBlock> CODEC = GemPolishingStationBlock.createCodec(GemPolishingStationBlock::new);
+
     public GemPolishingStationBlock(Settings settings) {
         super(settings);
     }
 
-//    Depreciated Minecraft methods aren't an issue, since mods need a re-write between Minecraft versions anyway...
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
+    }
+
+    //    Depreciated Minecraft methods aren't an issue, since mods need a re-write between Minecraft versions anyway...
 //    (depreciated Fabric or Mixin methods might break in a future Fabric update however...)
     @SuppressWarnings("deprecation")
     @Override
