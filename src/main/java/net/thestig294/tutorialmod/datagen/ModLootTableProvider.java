@@ -80,9 +80,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.STRIPPED_CHESTNUT_LOG);
         addDrop(ModBlocks.STRIPPED_CHESTNUT_WOOD);
         addDrop(ModBlocks.CHESTNUT_PLANKS);
+        addDrop(ModBlocks.CHESTNUT_SAPLING);
 
 //        Look at BlockLootTableGenerator.oakLeavesDrops() for an example on adding something else like the chance to get an apple!
-        addDrop(ModBlocks.CHESTNUT_LEAVES, leavesDrops(ModBlocks.CHESTNUT_LEAVES, ModBlocks.RUBY_SLAB, SAPLING_DROP_CHANCE));
+        addDrop(ModBlocks.CHESTNUT_LEAVES, leavesDrops(ModBlocks.CHESTNUT_LEAVES, ModBlocks.CHESTNUT_SAPLING, SAPLING_DROP_CHANCE));
     }
 
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {

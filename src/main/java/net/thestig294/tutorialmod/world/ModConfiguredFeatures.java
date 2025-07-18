@@ -9,10 +9,12 @@ import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
+import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.ModBlocks;
 
@@ -29,6 +31,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_ORE_KEY = registerKey("ruby_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_RUBY_ORE_KEY = registerKey("nether_ruby_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_RUBY_ORE_KEY = registerKey("end_ruby_ore");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CHESTNUT_KEY = registerKey("chestnut");
 
     public static void boostrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -51,13 +55,30 @@ public class ModConfiguredFeatures {
         register(context, RUBY_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldRubyOres, 12));
         register(context, NETHER_RUBY_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherRubyOres, 12));
         register(context, END_RUBY_ORE_KEY, Feature.ORE, new OreFeatureConfig(endRubyOres, 12));
+
+//        BTW: If all you want is a spawnable tree that doesn't actually appear in the world,
+//        registering a FEATURE.TREE is all you need!
+//        See TreeConfiguredFeatures for examples for the magic numbers, and how vanilla trees are configured
+//        See inheriting classes of: TrunkPlacer for different trunk placements
+//        See inheriting classes of: FoliagePlacer for different leaf placements
+        register(context, CHESTNUT_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+//                baseHeight, firstRandomHeight, secondRandomHeight (See: TrunkPlacer)
+                BlockStateProvider.of(ModBlocks.CHESTNUT_LOG),
+                new StraightTrunkPlacer(5, 4, 3),
+
+//                radius, offset, height (See: BlobFoliagePlacer)
+                BlockStateProvider.of(ModBlocks.CHESTNUT_LEAVES),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
+
+//                How to consider the free space around the tree before allowing to grow it
+                new TwoLayersFeatureSize(1,0,2)).build()
+        );
     }
 
     public static RegistryKey<ConfiguredFeature<?,?>> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(TutorialMod.MOD_ID, name));
     }
 
-    @SuppressWarnings("SameParameterValue")
     private static <FC extends FeatureConfig, F extends Feature<FC>> void register(Registerable<ConfiguredFeature<?, ?>> context,
                                                                                    RegistryKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration){
         context.register(key, new ConfiguredFeature<>(feature, configuration));

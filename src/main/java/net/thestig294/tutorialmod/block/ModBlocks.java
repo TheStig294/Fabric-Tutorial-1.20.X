@@ -18,6 +18,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.custom.*;
 import net.thestig294.tutorialmod.sound.ModSounds;
+import net.thestig294.tutorialmod.world.tree.ChestnutSaplingGenerator;
 
 public class ModBlocks {
     //    To copy an existing block, use: "FabricBlockSettings.copyOf(Blocks.BLOCK_NAME)"
@@ -124,6 +125,9 @@ public class ModBlocks {
 
     public static final Block DICE_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TutorialMod.MOD_ID, "dice_block"),
             new DiceBlock(FabricBlockSettings.copyOf(Blocks.STONE)));
+
+    public static final Block CHESTNUT_SAPLING = registerBlock("chestnut_sapling",
+            new SaplingBlock(new ChestnutSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)));
 
 //    Helper functions to make creating a block and its inventory item easier
     private static Block registerBlock(String name, Block block){
