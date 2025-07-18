@@ -7,6 +7,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.thestig294.tutorialmod.datagen.*;
 import net.thestig294.tutorialmod.world.ModConfiguredFeatures;
 import net.thestig294.tutorialmod.world.ModPlacedFeatures;
+import net.thestig294.tutorialmod.world.biome.ModBiomes;
 
 public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -28,5 +29,6 @@ public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::boostrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::boostrap);
+		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::boostrap);
 	}
 }

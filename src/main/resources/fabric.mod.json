@@ -27,6 +27,9 @@
 		],
 		"rei_client": [
 			"net.thestig294.tutorialmod.compat.TutorialModREIClientPlugin"
+		],
+		"terrablender": [
+			"net.thestig294.tutorialmod.world.biome.ModTerrablenderAPI"
 		]
 	},
 	"mixins": [

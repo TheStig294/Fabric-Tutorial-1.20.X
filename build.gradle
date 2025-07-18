@@ -21,6 +21,7 @@ repositories {
 		name = 'TerraformersMC'
 		url = 'https://maven.terraformersmc.com/'
 	}
+	maven { url = 'https://maven.minecraftforge.net/' }
 }
 
 fabricApi {
@@ -51,6 +52,8 @@ dependencies {
 //	When you do ./gradlew build, your compiled mod's jar file will include the terraform api,
 //	so a modpack maker doesn't have to download it separately!
 	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:8.0.2"
+
+	modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.20.2-3.2.0.14'
 }
 
 processResources {
