@@ -8,9 +8,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.feature.PlacedFeatures;
+import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.thestig294.tutorialmod.TutorialMod;
+import net.thestig294.tutorialmod.block.ModBlocks;
 
 import java.util.List;
 
@@ -18,6 +21,8 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> RUBY_ORE_PLACED_KEY = registryKey("ruby_ore_placed");
     public static final RegistryKey<PlacedFeature> NETHER_RUBY_ORE_PLACED_KEY = registryKey("nether_ruby_ore_placed");
     public static final RegistryKey<PlacedFeature> END_RUBY_ORE_PLACED_KEY = registryKey("end_ruby_ore_placed");
+
+    public static final RegistryKey<PlacedFeature> CHESTNUT_PLACED_KEY = registryKey("chestnut_placed");
 
     public static void boostrap(Registerable<PlacedFeature> context) {
 //        Used for mapping our configured feature, with the placed features we're defining below
@@ -40,6 +45,15 @@ public class ModPlacedFeatures {
         register(context, END_RUBY_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.END_RUBY_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(12,
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(80))));
+
+//        See VegetationPlacedFeatures for examples on vanilla tree worldgen
+//        2 trees spawning, with a 10% extra chance of 2 extra trees being spawned
+//        1 / extraChance must = an integer! (See PlacedFeatures.createCountExtraModifier())
+//        e.g. 0.25 = 4 = OK, 0.3 = 3.3333... = NOT OK
+//        VegetationPlacedFeatures.treeModifiersWithWouldSurvive() means trees are only spawned where a sapling could actually grow!
+        register(context, CHESTNUT_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.CHESTNUT_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(2, 0.1f, 2),
+                        ModBlocks.CHESTNUT_SAPLING));
     }
 
     public static RegistryKey<PlacedFeature> registryKey(String name) {

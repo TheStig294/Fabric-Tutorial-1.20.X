@@ -1,4 +1,4 @@
-// 1.20.2	2025-07-18T11:30:35.9757241	Tutorial Mod/Block Loot Tables
+// 1.20.2	2025-07-18T12:03:46.5207869	Tutorial Mod/Block Loot Tables
 a77a150c7851fbaf830081a89b0e3371ad62225d data\tutorialmod\loot_tables\blocks\ruby_fence_gate.json
 b3340c719a7e5b717cd9ccf26d03d2932423aeff data\tutorialmod\loot_tables\blocks\chestnut_wood.json
 a037b1a8ca349202b6cee6a612fafcebb8480fb0 data\tutorialmod\loot_tables\blocks\chestnut_sapling.json
@@ -6,8 +6,8 @@ a037b1a8ca349202b6cee6a612fafcebb8480fb0 data\tutorialmod\loot_tables\blocks\che
 681956b5e18f7d1d59f004198e5b9ad0c12192e3 data\tutorialmod\loot_tables\blocks\potted_dahlia.json
 151033a87d075f2c781260a9d2f09b838137413f data\tutorialmod\loot_tables\blocks\tomato_crop.json
 af40d80306717301f6cc60b19c082a4df9ad8c1e data\tutorialmod\loot_tables\blocks\chestnut_log.json
-01b515238d9fe6e695ccb6cde2add8caa23ef2d1 data\tutorialmod\loot_tables\blocks\deepslate_ruby_ore.json
 62b525cc60879fed99f9e678c1a93d25c0d3bdad data\tutorialmod\loot_tables\blocks\dahlia.json
+01b515238d9fe6e695ccb6cde2add8caa23ef2d1 data\tutorialmod\loot_tables\blocks\deepslate_ruby_ore.json
 3f950c6a949fc7757f6ee79a0dc95e652cf721fa data\tutorialmod\loot_tables\blocks\ruby_ore.json
 7c9a48559e7d2f66cab7773aa57bd31ae7034cc1 data\tutorialmod\loot_tables\blocks\stripped_chestnut_wood.json
 0206435597cd005f1d3c39c0aff4cdd540ece9a7 data\tutorialmod\loot_tables\blocks\chestnut_planks.json
