@@ -14,9 +14,9 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.thestig294.tutorialmod.TutorialMod;
 import net.thestig294.tutorialmod.block.ModBlocks;
+import net.thestig294.tutorialmod.world.tree.custom.ChestnutTrunkPlacer;
 
 import java.util.List;
 
@@ -64,7 +64,7 @@ public class ModConfiguredFeatures {
         register(context, CHESTNUT_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
 //                baseHeight, firstRandomHeight, secondRandomHeight (See: TrunkPlacer)
                 BlockStateProvider.of(ModBlocks.CHESTNUT_LOG),
-                new StraightTrunkPlacer(5, 4, 3),
+                new ChestnutTrunkPlacer(5, 4, 3),
 
 //                radius, offset, height (See: BlobFoliagePlacer)
                 BlockStateProvider.of(ModBlocks.CHESTNUT_LEAVES),

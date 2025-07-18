@@ -1,4 +1,4 @@
-// 1.20.2	2025-07-18T12:03:46.5232975	Tutorial Mod/Model Definitions
+// 1.20.2	2025-07-18T12:43:53.676668	Tutorial Mod/Model Definitions
 44a2ab167afd58c93ea4806712969e98191e42e7 assets\tutorialmod\models\block\ruby_trapdoor_bottom.json
 342ea3cb9295afcd449c4b82340eaa0d55821d9e assets\tutorialmod\blockstates\chestnut_leaves.json
 7b0f336fb3fad6a5f6df6b31e3a5be32663e8435 assets\tutorialmod\models\item\ruby_boots_iron_trim.json
@@ -32,8 +32,8 @@ a549f90e4db430408e477092ac95e50c97648ec3 assets\tutorialmod\models\block\ruby_tr
 d14fdf72f7d0be7bae19ad548d8f6957238ea558 assets\tutorialmod\models\item\ruby_pickaxe.json
 7e74bbc43eb93672294e79a3d5585b3e8acc08f2 assets\tutorialmod\models\item\ruby_sword.json
 120edcd9284eafa1821e839929f55e2f62e0999b assets\tutorialmod\models\block\ruby_wall_post.json
-ff720ea0aea021144b8557786f6e7f9dead2fd78 assets\tutorialmod\blockstates\gem_polishing_station.json
 d2ea57718b2b1d4bafd79cc6c71c483bab5528d7 assets\tutorialmod\blockstates\ruby_block.json
+ff720ea0aea021144b8557786f6e7f9dead2fd78 assets\tutorialmod\blockstates\gem_polishing_station.json
 2a8d008a809f38e68eccea32c23096824f276b87 assets\tutorialmod\models\item\ruby_leggings_quartz_trim.json
 809a01e1f39dea07cb686033d6f30303110c0bce assets\tutorialmod\models\item\ruby_chestplate_emerald_trim.json
 a8b0e15237f19e81c6da63b29b4f094fb26c8dc3 assets\tutorialmod\blockstates\ruby_button.json

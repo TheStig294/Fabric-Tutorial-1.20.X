@@ -20,6 +20,7 @@ import net.thestig294.tutorialmod.util.ModCustomTrades;
 import net.thestig294.tutorialmod.util.ModLootTableModifiers;
 import net.thestig294.tutorialmod.villager.ModVillagerProfession;
 import net.thestig294.tutorialmod.world.gen.ModWorldGeneration;
+import net.thestig294.tutorialmod.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,6 +49,7 @@ public class TutorialMod implements ModInitializer {
 		ModScreenHandlers.registerScreenHandlers();
 
 		ModRecipes.registerRecipes();
+		ModTrunkPlacerTypes.register();
 
 //		You might want to separate FuelRegistry calls into a separate class in practice
 //		(This is the equivalent to shoving everything into the autorun file in Lua...)
